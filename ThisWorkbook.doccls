@@ -1,0 +1,16 @@
+﻿Private Sub Workbook_Open()
+
+    ThisWorkbook.Sheets("Request").Protect Password:=ThisWorkbook.Sheets("settingsSheet").Range("H2").Value, UserInterFaceOnly:=True
+    Call SetZoom(80, ThisWorkbook.Sheets("Request"))
+    
+    HaltFlag = False
+    
+    ChooseLanguage_UserForm.Show
+    
+    ' If language not chosen
+    ' stop program.
+    If HaltFlag = True Then
+        Exit Sub
+    End If
+    
+End Sub
